@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textButton">20sp</dimen>
+    <dimen name="cornerRadius">5dp</dimen>
+    <dimen name="heightButton">52dp</dimen>
+</resources>

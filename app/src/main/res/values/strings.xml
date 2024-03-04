@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="email">البريد الإلكتروني</string>
     <string name="password">كلمة المرور</string>
+    <string name="app_name">app_name</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="hello_blank_fragment">هلا</string>
+    <string name="sigup">إنشاء حساب\n</string>
+    <string name="forgot_your_password">نسيت كلمة السر</string>
+    <string name="ts">تذكرني</string>
 </resources>
