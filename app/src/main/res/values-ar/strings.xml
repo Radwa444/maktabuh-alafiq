@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="password" >كلمة المرور</string>
+    <string name="app_name">app_name</string>
+    <string name="email">البريد الإلكتروني\n</string>
+    <string name="login">تسجيل دخول</string>
 </resources>
