@@ -2,6 +2,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="password" >كلمة المرور</string>
     <string name="app_name">app_name</string>
-    <string name="email">البريد الإلكتروني\n</string>
+    <string name="email">البريد الإلكتروني</string>
     <string name="login">تسجيل دخول</string>
+    <string name="sigup">إنشاء حساب</string>
+    <string name="hello_blank_fragment">هلا</string>
+    <string name="forgot_your_password">نسيت كلمة السر</string>
+    <string name="ts">تذكرني</string>
+    <string name="name">لاسم</string>
+    <string name="hello">مرحبا,👋</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="Do_you_already_have_an_account">هل لديك حساب بالفعل ؟</string>
+    <string name="doneQtp">تم إرسال رمز التحقق علي بريدك الالكتروني</string>
+    <string name="noOtp">لم تتلق رمز التحقق.</string>
+    <string name="re_transmitter">إعادة الإرسال</string>
+    <string name="congratulations">تهانينا !</string>
+    <string name="Password_Reset">إعادة تعيين كلمة المرور</string>
+    <string name="title_resest_screen">الرجاء إدخال الرمز الذي أرسلناه إلى بريدك الإلكتروني ****22@gmail.com لإعادة تعيين كلمة المرور الجديدة</string>
+    <string name="Your_account_has_been_registered_successfully">لقد تم تسجيل حسابك بنجاح</string>
+    <string name="enter_password">أدخل كلمة المرور الجديدة</string>
+    <string name="dont_have_an_account">ليس لديك حساب ؟</string>
+    <string name="agean">إعادة تعيين كلمة المرور</string>
+    <string name="verify_your_identity">تحقق من هويتك</string>
+    <string name="Enter_the_new_password">أدخل كلمة المرور الجديدة</string>
+    <string name="search">بحث...</string>
+    <string name="todo">TODO</string>
+    <string name="home">الرئيسية</string>
+    <string name="category">أقسام الكتب</string>
+    <string name="author">المؤلفون</string>
 </resources>

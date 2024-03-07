@@ -4,25 +4,63 @@
     <style name="Base.Theme.MaktabuhAlafiq" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="fontFamily">rubik-black.ttf</item>
     </style>
 
     <style name="Theme.MaktabuhAlafiq" parent="Base.Theme.MaktabuhAlafiq" />
+    <style name="MainActivityTheme" parent="Theme.MaktabuhAlafiq">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+    //style text
+    <style name="textTitle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/black</item>
+<!--        <item name="fontFamily">@font/rubik_bold</item>-->
+        <item name="android:textStyle">bold</item>
+
+    </style>
     <style name="text">
         <item name="android:textSize">16sp</item>
 <!--        <item name="android:textColor">@color/black</item>-->
         <item name="android:textStyle">bold</item>
 
     </style>
+
     <style name="editText" >
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
     </style>
-    <style name="buttonStyleWhile" >
-
-        <item name="android:textColor">@color/black</item>
-
+    <style name="TextInputLayoutOutlinedBox" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginHorizontal">16dp</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="boxStrokeColor">@color/light_grey</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeErrorColor">@color/primary_color</item>
     </style>
+    <style name="buttonStyleDart" >
+        <item name="android:textSize">@dimen/textButton</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/primary_color</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="cornerRadius">@dimen/cornerRadius</item>
+    </style>
+    <style name="buttonStyleLight" parent="Widget.MaterialComponents.Button.OutlinedButton" >
+        <item name="android:textSize">@dimen/textButton</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/primary_color</item>
+        <item name="cornerRadius">@dimen/cornerRadius</item>
+    </style>
+    <style name="textStyleMore">
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
 
 </resources>
