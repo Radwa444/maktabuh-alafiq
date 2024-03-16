@@ -29,8 +29,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <Button
-        android:id="@+id/button2"
+    <androidx.appcompat.widget.AppCompatButton
+       android:id="@+id/buttonSign"
         android:layout_width="match_parent"
         android:layout_height="@dimen/heightButton"
         android:layout_marginTop="16dp"
@@ -39,4 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_loginFragment_to_resetPasswordFragment"
             app:destination="@id/resetPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_sigupFragment"
+            app:destination="@id/sigupFragment" />
     </fragment>
     <fragment
         android:id="@+id/startFragment"
@@ -41,6 +44,9 @@
         <action
             android:id="@+id/action_sigupFragment_to_OTPFragment"
             app:destination="@id/OTPFragment" />
+        <action
+            android:id="@+id/action_sigupFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/resetPasswordFragment"

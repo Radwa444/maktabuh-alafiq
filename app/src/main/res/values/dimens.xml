@@ -2,5 +2,7 @@
 <resources>
     <dimen name="textButton">20sp</dimen>
     <dimen name="cornerRadius">5dp</dimen>
-    <dimen name="heightButton">52dp</dimen>
+    <dimen name="heightButton">56dp</dimen>
+    <dimen name="heightEditText">48dp</dimen>
+    <dimen name="radiaEdit">5dp</dimen>
 </resources>
