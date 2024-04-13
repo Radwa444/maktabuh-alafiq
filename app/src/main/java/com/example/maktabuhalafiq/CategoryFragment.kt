@@ -34,7 +34,7 @@ class CategoryFragment : Fragment() {
 
         val adapter = CategoryAdapter(items)
         binding.itemCategory.adapter = adapter
-        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.spacingButtonCategory)
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.heightButton)
         binding.itemCategory.addItemDecoration(SpaceItemCtagory(spacingInPixels))
         return binding.root
     }

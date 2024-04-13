@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewPager2 = binding.viewPager2
         recyclerView=binding.buttonCategories
@@ -71,7 +71,7 @@ binding.itemDownload.adapter=adapter2
         val categories = listOf("ديوان شعر", "كتب", "مجلات", "أدب", "علميات")
         val adapter = ButtonCategoriesAdapter(categories)
        recyclerView.adapter=adapter
-        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.spacingButtonCategory)
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.dimenButtonCategories)
         recyclerView.addItemDecoration(SpaceItemDecoration(spacingInPixels))
 
     }

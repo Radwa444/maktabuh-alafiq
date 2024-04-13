@@ -68,7 +68,7 @@
     </fragment>
     <fragment
         android:id="@+id/forgetPasswordFragment"
-        android:name="com.example.maktabuhalafiq.auth.ForgetPasswordFragment"
+        android:name="com.example.maktabuhalafiq.ForgetPasswordFragment"
         android:label="fragment_forget_password"
         tools:layout="@layout/fragment_forget_password" >
         <action

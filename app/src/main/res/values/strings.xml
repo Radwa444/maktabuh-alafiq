@@ -5,7 +5,7 @@
     <string name="email">البريد الإلكتروني</string>
     <string name="login">تسجيل دخول</string>
     <string name="hello_blank_fragment">هلا</string>
-    <string name="sigup">إنشاء حساب</string>
+    <string name="sigup">إنشاء حساب\n</string>
     <string name="forgot_your_password">نسيت كلمة السر</string>
     <string name="ts">تذكرني</string>
     <string name="name">لاسم</string>
@@ -24,10 +24,10 @@
     <string name="Enter_the_new_password">أدخل كلمة المرور الجديدة</string>
     <string name="dont_have_an_account">ليس لديك حساب ؟</string>
     <string name="agean">إعادة تعيين كلمة المرور</string>
-    <string name="search">بحث...</string>
+    <string name="search">بحث…</string>
     <string name="todo">TODO</string>
     <string name="Best_selling_books">الكتب الاكثر مبيعا</string>
-    <string name="More"><![CDATA[المزيد >]]></string>
+    <string name="More">المزيد</string>
     <string name="home">الرئيسية</string>
     <string name="category">أقسام الكتب</string>
     <string name="author">المؤلفون</string>
