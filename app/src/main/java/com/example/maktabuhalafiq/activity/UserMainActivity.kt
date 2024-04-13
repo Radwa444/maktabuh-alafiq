@@ -1,5 +1,6 @@
 package com.example.maktabuhalafiq.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.maktabuhalafiq.ArchivesFragment
 import com.example.maktabuhalafiq.AuthorFragment
 import com.example.maktabuhalafiq.CardFragment
+
 import com.example.maktabuhalafiq.CategoryFragment
 import com.example.maktabuhalafiq.HomeFragment
 import com.example.maktabuhalafiq.R
@@ -21,6 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class UserMainActivity : AppCompatActivity() {
     lateinit var binding:ActivityUserMainBinding
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)

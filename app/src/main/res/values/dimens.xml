@@ -5,5 +5,4 @@
     <dimen name="heightButton">56dp</dimen>
     <dimen name="heightEditText">48dp</dimen>
     <dimen name="radiaEdit">5dp</dimen>
-    <dimen name="spacingButtonCategory">8dp</dimen>
 </resources>

@@ -71,7 +71,7 @@ binding.itemDownload.adapter=adapter2
         val categories = listOf("ديوان شعر", "كتب", "مجلات", "أدب", "علميات")
         val adapter = ButtonCategoriesAdapter(categories)
        recyclerView.adapter=adapter
-        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.spacingButtonCategory)
+        val spacingInPixels = resources.getDimensionPixelSize(R.id.buttonCategories)
         recyclerView.addItemDecoration(SpaceItemDecoration(spacingInPixels))
 
     }
