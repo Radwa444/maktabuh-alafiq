@@ -8,20 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.maktabuhalafiq.databinding.FragmentAuthorBinding
 import com.example.maktabuhalafiq.databinding.FragmentSplashBinding
 
 
-class SplashFragment : Fragment() {
-    private lateinit var binding: FragmentSplashBinding
+class AuthorFragment : Fragment() {
+    private lateinit var binding: FragmentAuthorBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding=FragmentSplashBinding.inflate(layoutInflater)
-        Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(R.id.action_splashFragment_to_startFragment)
-        },3000)
+        binding=FragmentAuthorBinding.inflate(layoutInflater)
+
         return binding.root
 
     }
