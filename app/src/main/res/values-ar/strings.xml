@@ -4,7 +4,7 @@
     <string name="app_name">app_name</string>
     <string name="email">البريد الإلكتروني</string>
     <string name="login">تسجيل دخول</string>
-    <string name="sigup">إنشاء حساب\n</string>
+    <string name="sigup">إنشاء حساب</string>
     <string name="hello_blank_fragment">هلا</string>
     <string name="forgot_your_password">نسيت كلمة السر</string>
     <string name="ts">تذكرني</string>
