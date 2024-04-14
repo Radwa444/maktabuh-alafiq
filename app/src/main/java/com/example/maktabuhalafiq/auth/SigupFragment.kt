@@ -1,12 +1,12 @@
-package com.example.maktabuhalafiq
+package com.example.maktabuhalafiq.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.fragment.findNavController
+import com.example.maktabuhalafiq.R
 import com.example.maktabuhalafiq.databinding.FragmentSigupBinding
 
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:textSize="16sp"
+        android:textColor="@color/primary_color"
+        android:background="@drawable/button_radius"
+        android:text="ديوان شعر" tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

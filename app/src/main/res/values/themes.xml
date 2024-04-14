@@ -1,7 +1,7 @@
-<resources xmlns:tools="http://schemas.android.com/tools"
+<resources
     xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
-    <style name="Base.Theme.MaktabuhAlafiq" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.MaktabuhAlafiq" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
@@ -58,6 +58,12 @@
         <item name="strokeColor">@color/primary_color</item>
         <item name="cornerRadius">@dimen/cornerRadius</item>
     </style>
+    <style name="textStyleMore">
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
 
 
 </resources>

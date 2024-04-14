@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+
+    <item
+        android:id="@+id/cardFragment"
+        android:title="@string/card"
+        android:icon="@drawable/icon_cart"/>
+    <item
+        android:id="@+id/archivesFragment"
+        android:title="@string/archives"
+        android:icon="@drawable/ison_bookmark"/>
+    <item
+        android:id="@+id/authorFragment"
+        android:title="@string/author"
+        android:icon="@drawable/icon_edit_file"/>
+    <item
+        android:id="@+id/categoryFragment"
+        android:title="@string/category"
+        android:icon="@drawable/ion_library"/>
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/home"
+        android:icon="@drawable/icon_home_unselect"/>
+</menu>
