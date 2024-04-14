@@ -5,42 +5,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.example.maktabuhalafiq.databinding.FragmentOtpBinding
 import com.example.maktabuhalafiq.databinding.FragmentSigupBinding
 import com.example.maktabuhalafiq.databinding.FragmentStartBinding
 
 
-class StartFragment : Fragment() {
-    private lateinit var binding:FragmentStartBinding
-
-
+class OTPFragment : Fragment() {
+    private lateinit var binding: FragmentOtpBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentStartBinding.inflate(layoutInflater)
-
+        binding = FragmentOtpBinding.inflate(inflater, container, false)
         callBack()
-
         return binding.root
     }
 
     private fun callBack() {
-        inClickButtonSign()
-        inClickButtonLogin()
+        onClickBack()
     }
 
-    private fun inClickButtonSign() {
-        binding.buttonSign.setOnClickListener{
-            findNavController().navigate(R.id.action_startFragment_to_sigupFragment)
+    private fun onClickBack() {
+        binding.buttonBack.setOnClickListener{
+            findNavController().navigateUp()
         }
     }
-    private fun inClickButtonLogin() {
-        binding.buttonLogin.setOnClickListener{
-            findNavController().navigate(R.id.action_startFragment_to_loginFragment)
-        }
-    }
+
 
 }
