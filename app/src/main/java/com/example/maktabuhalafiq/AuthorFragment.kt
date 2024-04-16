@@ -10,8 +10,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.maktabuhalafiq.databinding.FragmentAuthorBinding
 import com.example.maktabuhalafiq.databinding.FragmentSplashBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class AuthorFragment : Fragment() {
     private lateinit var binding: FragmentAuthorBinding
 

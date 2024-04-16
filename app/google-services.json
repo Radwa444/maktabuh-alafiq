@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "968748386039",
+    "project_id": "maktabuh-alafiq",
+    "storage_bucket": "maktabuh-alafiq.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968748386039:android:ca2792a5308df38096f5f2",
+        "android_client_info": {
+          "package_name": "com.example.maktabuhalafiq"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4z4RlW8NC6DEzPhkBDt1ulLHQMUV8CLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

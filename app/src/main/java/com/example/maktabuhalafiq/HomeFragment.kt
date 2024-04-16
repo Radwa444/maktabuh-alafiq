@@ -11,17 +11,18 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.example.maktabuhalafiq.Adaper.ButtonCategoriesAdapter
-import com.example.maktabuhalafiq.Adaper.ItemBookAdapter
-import com.example.maktabuhalafiq.Adaper.ItemProductAdapter
-import com.example.maktabuhalafiq.Adaper.ItemProductDownloadAdapter
+import com.example.maktabuhalafiq.ui.Adapter.ButtonCategoriesAdapter
+import com.example.maktabuhalafiq.ui.Adapter.ItemBookAdapter
+import com.example.maktabuhalafiq.ui.Adapter.ItemProductAdapter
+import com.example.maktabuhalafiq.ui.Adapter.ItemProductDownloadAdapter
 import com.example.maktabuhalafiq.databinding.FragmentHomeBinding
-import com.example.maktabuhalafiq.models.ItemPorduct
-import com.example.maktabuhalafiq.models.ItemProductDownload
+import com.example.maktabuhalafiq.data.models.ItemPorduct
+import com.example.maktabuhalafiq.data.models.ItemProductDownload
 import com.example.maktabuhalafiq.utils.SpaceItemDecoration
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var viewPager2: ViewPager2
     private lateinit var recyclerView: RecyclerView
@@ -63,7 +64,7 @@ class HomeFragment : Fragment() {
         val adapter = ItemProductAdapter(items)
         binding.bestSeller.adapter=adapter
         binding.mostRated.adapter=adapter
-       val adapter2=ItemProductDownloadAdapter(items2)
+       val adapter2= ItemProductDownloadAdapter(items2)
 binding.itemDownload.adapter=adapter2
     }
 
