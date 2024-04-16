@@ -1,10 +1,10 @@
-package com.example.maktabuhalafiq.Adaper
+package com.example.maktabuhalafiq.ui.Adaper
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maktabuhalafiq.databinding.ItemProductBinding
-import com.example.maktabuhalafiq.models.ItemPorduct
+import com.example.maktabuhalafiq.data.models.ItemPorduct
 
 class ItemProductAdapter(private val itemList: List<ItemPorduct>): RecyclerView.Adapter<ItemProductAdapter.ItemProderViewHolder>() {
     class ItemProderViewHolder(private val binding:ItemProductBinding):RecyclerView.ViewHolder(binding.root) {
@@ -30,7 +30,7 @@ class ItemProductAdapter(private val itemList: List<ItemPorduct>): RecyclerView.
     }
 
     override fun onBindViewHolder(holder: ItemProderViewHolder, position: Int) {
-        var itemPorduct:ItemPorduct=itemList[position]
+        var itemPorduct: ItemPorduct =itemList[position]
         holder.bind(itemPorduct)
     }
 

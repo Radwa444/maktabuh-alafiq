@@ -1,4 +1,4 @@
-package com.example.maktabuhalafiq.auth
+package com.example.maktabuhalafiq.ui.auth.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.maktabuhalafiq.activity.UserMainActivity
+import com.example.maktabuhalafiq.ui.activity.UserMainActivity
 import com.example.maktabuhalafiq.databinding.FragmentOtpBinding
-import com.example.maktabuhalafiq.databinding.FragmentSigupBinding
-import com.example.maktabuhalafiq.databinding.FragmentStartBinding
 
 
 class OTPFragment : Fragment() {
@@ -26,7 +24,7 @@ class OTPFragment : Fragment() {
 
     private fun callBack() {
         onClickBack()
-        startActivity(Intent(requireActivity(),UserMainActivity::class.java))
+        startActivity(Intent(requireActivity(), UserMainActivity::class.java))
         requireActivity().finish()
     }
 
