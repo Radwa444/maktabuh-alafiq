@@ -1,4 +1,4 @@
-package com.example.maktabuhalafiq.auth
+package com.example.maktabuhalafiq.ui.auth.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -39,6 +39,8 @@ class StartFragment : Fragment() {
     private fun inClickButtonLogin() {
         binding.buttonLogin.setOnClickListener{
             findNavController().navigate(R.id.action_startFragment_to_loginFragment)
+
+
         }
     }
 

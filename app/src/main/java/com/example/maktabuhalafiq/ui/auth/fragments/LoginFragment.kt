@@ -1,4 +1,4 @@
-package com.example.maktabuhalafiq.auth
+package com.example.maktabuhalafiq.ui.auth.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,10 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.maktabuhalafiq.R
+import com.example.maktabuhalafiq.data.repository.user.UserPreferenceRepositoryImpl
 import com.example.maktabuhalafiq.databinding.FragmentLoginBinding
+import com.example.maktabuhalafiq.ui.auth.viewModels.LoginViewModel
 
 
 class LoginFragment : Fragment() {
+    val loginViewModel:LoginViewModel by lazy{
+        LoginViewModel(userPrefs = UserPreferenceRepositoryImpl(requireActivity()))
+    }
     private lateinit var binding: FragmentLoginBinding
 
 

@@ -1,4 +1,4 @@
-package com.example.maktabuhalafiq.auth
+package com.example.maktabuhalafiq.ui.auth.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

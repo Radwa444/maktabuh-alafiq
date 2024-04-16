@@ -1,4 +1,4 @@
-package com.example.maktabuhalafiq.activity
+package com.example.maktabuhalafiq.ui.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle

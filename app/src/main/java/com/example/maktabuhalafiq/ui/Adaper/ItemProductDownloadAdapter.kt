@@ -1,12 +1,12 @@
-package com.example.maktabuhalafiq.Adaper
+package com.example.maktabuhalafiq.ui.Adaper
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maktabuhalafiq.databinding.ItemProductBinding
 import com.example.maktabuhalafiq.databinding.ItemProductDownloadBinding
-import com.example.maktabuhalafiq.models.ItemPorduct
-import com.example.maktabuhalafiq.models.ItemProductDownload
+import com.example.maktabuhalafiq.data.models.ItemPorduct
+import com.example.maktabuhalafiq.data.models.ItemProductDownload
 
 class ItemProductDownloadAdapter(private val itemList: List<ItemProductDownload>):RecyclerView.Adapter<ItemProductDownloadAdapter.ItemProductDownloadViewHolder>() {
     class ItemProductDownloadViewHolder(private val binding:ItemProductDownloadBinding) :RecyclerView.ViewHolder(binding.root){
@@ -22,7 +22,7 @@ fun bind(itemProductDownload: ItemProductDownload){
         viewType: Int
     ): ItemProductDownloadViewHolder {
         val binding = ItemProductDownloadBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ItemProductDownloadAdapter.ItemProductDownloadViewHolder(binding)
+        return ItemProductDownloadViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -30,7 +30,7 @@ fun bind(itemProductDownload: ItemProductDownload){
     }
 
     override fun onBindViewHolder(holder: ItemProductDownloadViewHolder, position: Int) {
-        var itemProductDownload:ItemProductDownload=itemList[position]
+        var itemProductDownload: ItemProductDownload =itemList[position]
         holder.bind(itemProductDownload)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.maktabuhalafiq.activity
+package com.example.maktabuhalafiq.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

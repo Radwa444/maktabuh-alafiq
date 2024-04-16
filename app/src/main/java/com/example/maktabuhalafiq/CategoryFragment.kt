@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.maktabuhalafiq.Adaper.CategoryAdapter
-import com.example.maktabuhalafiq.Adaper.ItemProductAdapter
+import com.example.maktabuhalafiq.ui.Adaper.CategoryAdapter
+import com.example.maktabuhalafiq.ui.Adaper.ItemProductAdapter
 import com.example.maktabuhalafiq.databinding.FragmentCategoryBinding
 import com.example.maktabuhalafiq.databinding.FragmentHomeBinding
 import com.example.maktabuhalafiq.utils.SpaceItemCtagory
