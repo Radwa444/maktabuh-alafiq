@@ -46,35 +46,28 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/filledTextFieldSearh"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="16dp"
-            android:hint="@string/search"
-            android:inputType="textEmailAddress"
-            android:textSize="14sp"
 
-            app:boxCornerRadiusBottomEnd="5dp"
-            app:endIconDrawable="@drawable/notices"
-            app:layout_constraintBottom_toTopOf="@+id/view_pager2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
-            tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_searh"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="48dp"
+                android:textSize="12sp"
+                android:hint="@string/search"
+                android:background="@drawable/fill_eidt"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/view_pager2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+
+                />
+
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager2"
             android:layout_width="0dp"
-            android:layout_height="170dp"
+            android:layout_height="150dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
@@ -82,7 +75,8 @@
             android:paddingEnd="140dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/filledTextFieldSearh" />
+            tools:listitem="@layout/item_banner_layout"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_searh" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/buttonCategories"
@@ -165,9 +159,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:visibility="visible"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11"
@@ -217,9 +211,9 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="100dp"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:visibility="visible"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

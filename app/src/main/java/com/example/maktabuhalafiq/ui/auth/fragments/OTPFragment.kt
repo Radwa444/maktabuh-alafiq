@@ -9,8 +9,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.maktabuhalafiq.ui.activity.UserMainActivity
 import com.example.maktabuhalafiq.databinding.FragmentOtpBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class OTPFragment : Fragment() {
     private lateinit var binding: FragmentOtpBinding
     override fun onCreateView(

@@ -10,8 +10,9 @@ import com.example.maktabuhalafiq.databinding.FragmentCardBinding
 import com.example.maktabuhalafiq.databinding.FragmentOtpBinding
 import com.example.maktabuhalafiq.databinding.FragmentSigupBinding
 import com.example.maktabuhalafiq.databinding.FragmentStartBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class CardFragment : Fragment() {
     private lateinit var binding: FragmentCardBinding
     override fun onCreateView(

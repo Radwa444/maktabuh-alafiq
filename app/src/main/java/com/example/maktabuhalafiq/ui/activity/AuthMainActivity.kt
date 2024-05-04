@@ -3,6 +3,9 @@ package com.example.maktabuhalafiq.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.maktabuhalafiq.R
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class AuthMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
