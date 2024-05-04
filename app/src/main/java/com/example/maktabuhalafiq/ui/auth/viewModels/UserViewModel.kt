@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 
 import com.example.maktabuhalafiq.data.repository.user.UserPreferenceRepositoryImpl
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.lang.IllegalArgumentException
+import javax.inject.Inject
 
-class UserViewModel(
+class UserViewModel (
     private val userPreferenceRepository: UserPreferenceRepositoryImpl
 ):ViewModel() {
     suspend fun isUserLoggedIn()=userPreferenceRepository.isUserLoggedIn()

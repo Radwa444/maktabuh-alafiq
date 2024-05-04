@@ -11,17 +11,18 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.example.maktabuhalafiq.ui.Adaper.ButtonCategoriesAdapter
-import com.example.maktabuhalafiq.ui.Adaper.ItemBookAdapter
-import com.example.maktabuhalafiq.ui.Adaper.ItemProductAdapter
-import com.example.maktabuhalafiq.ui.Adaper.ItemProductDownloadAdapter
+import com.example.maktabuhalafiq.ui.Adapter.ButtonCategoriesAdapter
+import com.example.maktabuhalafiq.ui.Adapter.ItemBookAdapter
+import com.example.maktabuhalafiq.ui.Adapter.ItemProductAdapter
+import com.example.maktabuhalafiq.ui.Adapter.ItemProductDownloadAdapter
 import com.example.maktabuhalafiq.databinding.FragmentHomeBinding
 import com.example.maktabuhalafiq.data.models.ItemPorduct
 import com.example.maktabuhalafiq.data.models.ItemProductDownload
 import com.example.maktabuhalafiq.utils.SpaceItemDecoration
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var viewPager2: ViewPager2
     private lateinit var recyclerView: RecyclerView

@@ -1,4 +1,4 @@
-package com.example.maktabuhalafiq.ui.Adaper
+package com.example.maktabuhalafiq.ui.Adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

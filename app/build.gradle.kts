@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
+    id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
 }
 
@@ -45,13 +46,19 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.core:core-ktx:1.13.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
-    implementation("androidx.activity:activity:1.8.2")
-    implementation("androidx.fragment:fragment:1.6.2")
+    implementation("androidx.activity:activity-ktx:1.9.0")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation("com.google.firebase:firebase-firestore:24.11.1")
+    implementation("androidx.work:work-runtime-ktx:2.9.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation("com.google.firebase:firebase-database-ktx:20.3.1")
+    implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
+    implementation("androidx.activity:activity:1.8.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     implementation ("io.github.chaosleung:pinview:1.4.4")
@@ -76,16 +83,35 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics")
 
     //third party libraries
-    implementation ("com.github.pwittchen:reactivenetwork-rx2:3.0.2")
 
+    implementation ("com.github.pwittchen:reactivenetwork-rx2:3.0.8")
+    //datastore
     implementation("androidx.datastore:datastore:1.0.0")
-
-    // optional - RxJava2 support
     implementation("androidx.datastore:datastore-rxjava2:1.0.0")
-
-    // optional - RxJava3 support
     implementation("androidx.datastore:datastore-rxjava3:1.0.0")
+    implementation("io.reactivex.rxjava3:rxjava:3.1.2")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
+
+
+    //dagger hilt
+    implementation("com.google.dagger:hilt-android:2.49")
+    kapt("com.google.dagger:hilt-android-compiler:2.49")
+
+    //glide
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+    implementation ("com.squareup.picasso:picasso:2.8")
+
+
 }
+kapt {
+    correctErrorTypes = true
+}
+hilt {
+    enableAggregatingTask = true
+}
+
+
 
 
 

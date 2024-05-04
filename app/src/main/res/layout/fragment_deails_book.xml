@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeailsBookFragment">
+
+
+    <ImageView
+        android:id="@+id/buttom_Share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="19dp"
+        android:src="@drawable/baseline_share_24"
+        app:layout_constraintEnd_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/buttom_Favorite"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="تفاصيل"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/buttom_back"
+        app:layout_constraintStart_toEndOf="@+id/buttom_cart"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/buttom_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/buttom_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/icon_cart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/Image_book"
+        android:layout_width="110dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:src="@mipmap/book1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttom_back" />
+
+    <TextView
+        android:id="@+id/author_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="5dp"
+        android:text="لمؤلف: نادية أحمد مكي"
+        app:layout_constraintEnd_toStartOf="@+id/Image_book"
+        app:layout_constraintTop_toBottomOf="@+id/details" />
+
+    <TextView
+        android:id="@+id/title_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="اسم الكتاب: شغف"
+        app:layout_constraintEnd_toStartOf="@+id/Image_book"
+        app:layout_constraintTop_toBottomOf="@+id/author_book" />
+
+    <TextView
+        android:id="@+id/category_book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="الصنف: رواية"
+        app:layout_constraintEnd_toStartOf="@+id/Image_book"
+        app:layout_constraintTop_toBottomOf="@+id/title_book" />
+
+    <TextView
+        android:id="@+id/number_part"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="عدد الصفحات: 396"
+        app:layout_constraintEnd_toStartOf="@+id/Image_book"
+        app:layout_constraintTop_toBottomOf="@+id/category_book" />
+
+    <Button
+        android:id="@+id/buying"
+        style="@style/buttonStyleDart"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/heightButton"
+        android:layout_marginTop="12dp"
+        android:text="شراء 160جنية"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Image_book"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/buttom_Favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/__icon__heart_"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/buying" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="المفضلة"
+        android:textColor="@color/primary_color"
+        app:layout_constraintEnd_toEndOf="@+id/buttom_Favorite"
+        app:layout_constraintStart_toStartOf="@+id/buttom_Favorite"
+        app:layout_constraintTop_toBottomOf="@+id/buttom_Favorite" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="3dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="19dp"
+        android:background="@color/primary_color"
+        android:backgroundTint="@color/primary_color"
+        app:layout_constraintEnd_toStartOf="@+id/buttom_Favorite"
+        app:layout_constraintTop_toTopOf="@+id/buttom_Favorite" />
+
+    <TextView
+        android:id="@+id/textView_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="مشاركة"
+        android:textColor="@color/primary_color"
+        app:layout_constraintEnd_toEndOf="@+id/buttom_Share"
+        app:layout_constraintStart_toStartOf="@+id/buttom_Share"
+        app:layout_constraintTop_toBottomOf="@+id/buttom_Share" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="3dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="19dp"
+        android:background="@color/primary_color"
+        app:layout_constraintEnd_toStartOf="@+id/buttom_Share"
+        app:layout_constraintTop_toTopOf="@+id/buttom_Share" />
+
+    <ImageView
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="19dp"
+        android:src="@drawable/save"
+        app:layout_constraintEnd_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/buttom_Share" />
+
+    <TextView
+        android:id="@+id/textView_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="حفظ"
+        android:textColor="@color/primary_color"
+        app:layout_constraintEnd_toEndOf="@+id/button_save"
+        app:layout_constraintStart_toStartOf="@+id/button_save"
+        app:layout_constraintTop_toBottomOf="@+id/button_save" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.73" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="60dp"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="60dp"
+        android:background="@color/primary_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_share" />
+</androidx.constraintlayout.widget.ConstraintLayout>

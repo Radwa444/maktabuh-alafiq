@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.maktabuhalafiq.R
 import com.example.maktabuhalafiq.databinding.FragmentSigupBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SigupFragment : Fragment() {
     private lateinit var binding: FragmentSigupBinding
     override fun onCreateView(
