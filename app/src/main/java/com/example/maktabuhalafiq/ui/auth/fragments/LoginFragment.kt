@@ -10,8 +10,9 @@ import com.example.maktabuhalafiq.R
 import com.example.maktabuhalafiq.data.repository.user.UserPreferenceRepositoryImpl
 import com.example.maktabuhalafiq.databinding.FragmentLoginBinding
 import com.example.maktabuhalafiq.ui.auth.viewModels.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
     val loginViewModel:LoginViewModel by lazy{
         LoginViewModel(userPrefs = UserPreferenceRepositoryImpl(requireActivity()))

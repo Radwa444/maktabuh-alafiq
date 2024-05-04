@@ -1,11 +1,9 @@
-package com.example.maktabuhalafiq.ui.Adaper
+package com.example.maktabuhalafiq.ui.Adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.maktabuhalafiq.databinding.ItemProductBinding
 import com.example.maktabuhalafiq.databinding.ItemProductDownloadBinding
-import com.example.maktabuhalafiq.data.models.ItemPorduct
 import com.example.maktabuhalafiq.data.models.ItemProductDownload
 
 class ItemProductDownloadAdapter(private val itemList: List<ItemProductDownload>):RecyclerView.Adapter<ItemProductDownloadAdapter.ItemProductDownloadViewHolder>() {

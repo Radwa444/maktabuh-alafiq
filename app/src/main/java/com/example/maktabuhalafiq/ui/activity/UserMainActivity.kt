@@ -7,21 +7,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.maktabuhalafiq.ArchivesFragment
 import com.example.maktabuhalafiq.AuthorFragment
 import com.example.maktabuhalafiq.CardFragment
-
-import com.example.maktabuhalafiq.CategoryFragment
-import com.example.maktabuhalafiq.HomeFragment
+import com.example.maktabuhalafiq.ui.home.HomeFragment
 import com.example.maktabuhalafiq.R
 import com.example.maktabuhalafiq.databinding.ActivityUserMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.maktabuhalafiq.ui.category.CategoryFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class UserMainActivity : AppCompatActivity() {
+@AndroidEntryPoint
+
+class UserMainActivity  : AppCompatActivity() {
     lateinit var binding:ActivityUserMainBinding
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +30,8 @@ class UserMainActivity : AppCompatActivity() {
             binding.buttomMenu.setOnItemSelectedListener{menu ->when(menu.itemId){
             R.id.homeFragment-> {
                 replaceragment(HomeFragment())
+
+
                 true
             }
             R.id.categoryFragment-> {
@@ -68,22 +67,5 @@ class UserMainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace( R.id.fragmentContainerView2, fragment).commit()
     }
 
-    private fun nav_menu() {
-        val bottomNavigationMenuView = findViewById<BottomNavigationView>(R.id.buttomMenu)
-        val navController = findNavController(R.id.fragmentContainerView2)
 
-        val appBar = AppBarConfiguration(
-            setOf(
-                R.id.archivesFragment,
-                R.id.authorFragment,
-                R.id.categoryFragment,
-                R.id.homeFragment,
-
-
-
-            )
-        )
-        setupActionBarWithNavController(navController, appBar)
-        bottomNavigationMenuView.setupWithNavController(navController)
-    }
 }
