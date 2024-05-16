@@ -49,18 +49,22 @@ class BooksFragment : Fragment() {
                 .commit()
         }
 
-     try {
-         val bookList = arguments?.getParcelableArrayList<Book>("list_key")
-         Log.d("BooksFragment", "Received book list: ${bookList?.size}")
-         bookList?.let {
-             adapter.updateBooks(it)
+        try {
+            val bookList = arguments?.getParcelableArrayList<Book>("list_key")
+            val list = arguments?.getParcelableArrayList<Book>("list")
+            Log.d("BooksFragment", "Received book list: ${bookList?.size}")
+            list?.let {
+                adapter.updateBooks(it)
+                Log.d("BooksFragment", "Received book list: $it")
+            } ?: Log.e("BooksFragment", "No book list received")
+            bookList?.let {
+                adapter.updateBooks(it)
+                Log.d("BooksFragment", "Received book list: $it")
+            } ?: Log.e("BooksFragment", "No book list received")
+        } catch (e: Exception) {
+            Log.e("BooksFragment", e.message.toString())
+        }
 
-             Log.d("BooksFragment", "Received book list: $it")
-         } ?: Log.e("BooksFragment", "No book list received")
-
-     }catch (e:Exception){
-         Log.e("BooksFragment", e.message.toString())
-     }
 
 
     }

@@ -7,18 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.maktabuhalafiq.ArchivesFragment
 import com.example.maktabuhalafiq.AuthorFragment
 import com.example.maktabuhalafiq.CardFragment
-import com.example.maktabuhalafiq.HomeFragment
+import com.example.maktabuhalafiq.ui.home.HomeFragment
 import com.example.maktabuhalafiq.R
 import com.example.maktabuhalafiq.databinding.ActivityUserMainBinding
 import com.example.maktabuhalafiq.ui.category.CategoryFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,12 +24,14 @@ class UserMainActivity  : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         binding=ActivityUserMainBinding.inflate(layoutInflater)
 
             binding.buttomMenu.setOnItemSelectedListener{menu ->when(menu.itemId){
             R.id.homeFragment-> {
                 replaceragment(HomeFragment())
+
+
                 true
             }
             R.id.categoryFragment-> {

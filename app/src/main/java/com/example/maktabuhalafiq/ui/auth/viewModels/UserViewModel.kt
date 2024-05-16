@@ -19,6 +19,6 @@ class UserViewModelFactory(private val userPreferenceRepositoryImpl: UserPrefere
         if (modelClass.isAssignableFrom(UserViewModel::class.java)){
             @Suppress("UNCHECKED_CAST") return UserViewModel(userPreferenceRepositoryImpl ) as T
         }
-        throw IllegalArgumentException("uNKNOWN vIEWMODEL CLASS")
+        throw IllegalArgumentException("unknown viewmodel class")
     }
 }

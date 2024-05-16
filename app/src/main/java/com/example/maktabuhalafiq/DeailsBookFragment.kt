@@ -45,11 +45,9 @@ class DeailsBookFragment : Fragment() {
     }
 
     private fun onClickBack() {
-        binding.buttomBack.setOnClickListener {  requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainerView2, BooksFragment())
-            .addToBackStack(null)
-            .commit() }
+        binding.buttomBack.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
     }
 
 
-}
+}}

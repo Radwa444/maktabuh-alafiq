@@ -8,7 +8,7 @@
     <string name="sigup">إنشاء حساب</string>
     <string name="forgot_your_password">نسيت كلمة السر</string>
     <string name="ts">تذكرني</string>
-    <string name="name">لاسم</string>
+    <string name="name">الاسم</string>
     <string name="hello">مرحبا,👋</string>
     <string name="confirm_password">تأكيد كلمة المرور</string>
     <string name="Do_you_already_have_an_account">هل لديك حساب بالفعل ؟</string>
@@ -34,4 +34,6 @@
     <string name="archives">المحفوظات</string>
     <string name="card">عربة التسوق</string>
     <string name="prince_book">160 جنية</string>
+    <string name="enter_name">أدخل الاسم</string>
+    <string name="loadind">Loadind....</string>
 </resources>

@@ -5,5 +5,7 @@
     <color name="primary_color">#425170</color>
     <color name="light_grey">#CBCBCB</color>
     <color name="approx">#FFF8E6</color>
-
+    <color name="whiteSmoke">#F4F4F4</color>
+    <color name="cosmicLatte">#FFF8E6</color>
+    Cosmic Latte
 </resources>
