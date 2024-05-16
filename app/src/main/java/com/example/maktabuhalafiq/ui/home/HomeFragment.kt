@@ -1,24 +1,31 @@
-package com.example.maktabuhalafiq
+package com.example.maktabuhalafiq.ui.home
 
+import Book
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.example.maktabuhalafiq.ui.Adapter.ButtonCategoriesAdapter
+import com.example.maktabuhalafiq.R
 import com.example.maktabuhalafiq.ui.Adapter.ItemBookAdapter
 import com.example.maktabuhalafiq.ui.Adapter.ItemProductAdapter
 import com.example.maktabuhalafiq.ui.Adapter.ItemProductDownloadAdapter
 import com.example.maktabuhalafiq.databinding.FragmentHomeBinding
 import com.example.maktabuhalafiq.data.models.ItemPorduct
 import com.example.maktabuhalafiq.data.models.ItemProductDownload
+import com.example.maktabuhalafiq.ui.Adapter.ButtonCategoriesAdapter
+import com.example.maktabuhalafiq.ui.book.BooksFragment
 import com.example.maktabuhalafiq.utils.SpaceItemDecoration
+
+import com.example.maktabuhalafiq.utils.UiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
@@ -29,7 +36,10 @@ class HomeFragment : Fragment() {
     private lateinit var handler: Handler
     private lateinit var imageList: ArrayList<Int>
     private lateinit var adapter: ItemBookAdapter
-   lateinit var binding: FragmentHomeBinding
+    private val categoryViewModel: HomeViewModel by viewModels()
+    private lateinit var  buttonCategoriesAdapter: ButtonCategoriesAdapter
+
+    lateinit var binding: FragmentHomeBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,30 +60,47 @@ class HomeFragment : Fragment() {
         val items = listOf(
             ItemPorduct(R.mipmap.book1, "ورق الشجره", "خلود محمود", "20جنيه"),
             ItemPorduct(R.mipmap.book2, "عناقيد الذهب", "أحمد علي", "25جنيه"),
+            ItemPorduct(R.mipmap.book1, "ورق الشجره", "خلود محمود", "20جنيه"),
+            ItemPorduct(R.mipmap.book2, "عناقيد الذهب", "أحمد علي", "25جنيه"),
 
         )
         val items2 = listOf(
-          ItemProductDownload(R.mipmap.book1,"ورق الشجره", "خلود محمود",),
-            ItemProductDownload(R.mipmap.book2,"ورق الشجره", "خلود محمود",),
-           ItemProductDownload(R.mipmap.book3,"ورق الشجره", "خلود محمود",),
-                   ItemProductDownload(R.mipmap.book1,"ورق الشجره", "خلود محمود",),
-        ItemProductDownload(R.mipmap.book2,"ورق الشجره", "خلود محمود",),
-        ItemProductDownload(R.mipmap.book3,"ورق الشجره", "خلود محمود",)
+          ItemProductDownload(R.mipmap.book4,"الفئران لا تدخل الجنة", "سعيد أبو طالب",),
+            ItemProductDownload(R.mipmap.book5,"رنا", "محمد مجدي يونس",),
+            ItemProductDownload(R.mipmap.book7,"اخر محاولة", "محمود منير",),
+
             )
 
         val adapter = ItemProductAdapter(items)
         binding.bestSeller.adapter=adapter
         binding.mostRated.adapter=adapter
+        binding.mostRated.addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.dimenButtonCategories)))
+        binding.bestSeller.addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.dimenButtonCategories)))
        val adapter2= ItemProductDownloadAdapter(items2)
-binding.itemDownload.adapter=adapter2
+       binding.itemDownload.adapter=adapter2
+        binding.itemDownload.addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.dimenButtonCategories)))
     }
 
     private fun buttonCategory() {
-        val categories = listOf("ديوان شعر", "كتب", "مجلات", "أدب", "علميات")
-        val adapter = ButtonCategoriesAdapter(categories)
-       recyclerView.adapter=adapter
-        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.dimenButtonCategories)
-        recyclerView.addItemDecoration(SpaceItemDecoration(spacingInPixels))
+        buttonCategoriesAdapter = ButtonCategoriesAdapter { category ->
+            try {
+                navigateToBooks(category.books)
+
+            }catch (e:Exception){
+                Log.d("HomeFragment",e.message.toString())
+            }
+
+            Log.d("HomeFragment", category.books.toString())
+        }
+        binding.buttonCategories.apply {
+
+            adapter = buttonCategoriesAdapter
+            addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.dimenButtonCategories)))
+        }
+
+        observeCategories()
+
+        categoryViewModel.fetchCategories()
 
     }
 
@@ -126,5 +153,40 @@ binding.itemDownload.adapter=adapter2
     override fun onResume() {
         super.onResume()
         handler.postDelayed(runnable, 2000)
+    }
+    private fun observeCategories() {
+        categoryViewModel.categories.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is UiState.Success -> {
+                    val categories = state.data
+                    buttonCategoriesAdapter.submitList(categories)
+                }
+                is UiState.Failure -> {
+                    Log.e("CategoryFragment", "Failed to fetch categories: ${state.error}")
+                }
+
+                else -> {
+
+                }
+            }
+        }
+    }
+    private fun navigateToBooks(book:List<Book>) {
+        try {
+            val booksFragment = BooksFragment()
+
+            val args = Bundle().apply {
+                putParcelableArrayList("list", ArrayList(book))
+                Log.e("args",book.toString())
+            }
+            booksFragment.arguments = args
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView2, booksFragment)
+                .addToBackStack(null)
+                .commit()
+
+        } catch (e: Exception) {
+            Log.d("ErrorNavCategory", e.message.toString())
+        }
     }
 }

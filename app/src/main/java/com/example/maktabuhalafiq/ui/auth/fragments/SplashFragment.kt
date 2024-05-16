@@ -39,6 +39,7 @@ class SplashFragment : Fragment() {
                 val isLoggedIn=userViewModel.isUserLoggedIn().first()
                 if(isLoggedIn){
                     findNavController().navigate(R.id.action_splashFragment_to_startFragment)
+
                 }
                 else{
                     startActivity(Intent(requireActivity(), UserMainActivity::class.java))

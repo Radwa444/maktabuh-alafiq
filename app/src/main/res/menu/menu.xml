@@ -24,5 +24,5 @@
     <item
         android:id="@+id/homeFragment"
         android:title="@string/home"
-        android:icon="@drawable/icon_home_unselect"/>
+        android:icon="@drawable/onclick_home"/>
 </menu>

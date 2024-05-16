@@ -1,4 +1,5 @@
 package com.example.maktabuhalafiq.id
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
@@ -21,5 +22,10 @@ object FirebaseModule {
     @Singleton
     fun provideDatabaseReference(): DatabaseReference {
         return FirebaseDatabase.getInstance().reference
+    }
+    @Provides
+    @Singleton
+    fun provideAuthReference(): FirebaseAuth {
+        return FirebaseAuth.getInstance()
     }
 }
