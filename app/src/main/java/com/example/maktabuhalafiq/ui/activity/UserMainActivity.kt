@@ -24,7 +24,7 @@ class UserMainActivity  : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         binding=ActivityUserMainBinding.inflate(layoutInflater)
 
             binding.buttomMenu.setOnItemSelectedListener{menu ->when(menu.itemId){

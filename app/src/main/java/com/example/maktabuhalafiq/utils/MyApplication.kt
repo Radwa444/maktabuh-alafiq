@@ -1,5 +1,4 @@
 package com.example.maktabuhalafiq.utils
-
 import android.annotation.SuppressLint
 import android.app.Application
 import android.util.Log
@@ -16,7 +15,6 @@ class MyApplication : Application() {
         super.onCreate()
         listenToNetworkConnectivity()
     }
-
     @SuppressLint("CheckResult")
     private fun listenToNetworkConnectivity() {
         ReactiveNetwork
@@ -28,6 +26,7 @@ class MyApplication : Application() {
                 FirebaseCrashlytics.getInstance().setCustomKey("connected_to_internet", isConnected)
             }
     }
+
     companion object{
         private const val TAG="MyApplication"
     }
