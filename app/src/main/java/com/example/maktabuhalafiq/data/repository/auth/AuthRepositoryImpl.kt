@@ -1,44 +1,26 @@
 package com.example.maktabuhalafiq.data.repository.auth
-
-import android.util.Log
-import com.example.maktabuhalafiq.data.models.User
 import com.example.maktabuhalafiq.utils.UiState
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
-import com.google.firebase.database.DatabaseReference
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-class AuthRepositoryImpl @Inject constructor(private val databaseReference: DatabaseReference,private val  auth:FirebaseAuth):AuthRepository {
- val TAG="AuthRepositoryImpl"
-    override suspend fun signup(user: User, result: (UiState<String>) -> Unit) {
-       auth.createUserWithEmailAndPassword(user.email,user.password).addOnCompleteListener {
-           if (it.isSuccessful){
-            UiState.Success("User register successful")
-               Log.d(TAG,"User register successful")
-
-           }else{
-               try {
-                   throw it.exception ?: java.lang.Exception("Invalid authentication")
-               } catch (e: FirebaseAuthWeakPasswordException) {
-                   result.invoke(UiState.Failure("Authentication failed, Password should be at least 6 characters"))
-               } catch (e: FirebaseAuthInvalidCredentialsException) {
-                   result.invoke(UiState.Failure("Authentication failed, Invalid email entered"))
-               } catch (e: FirebaseAuthUserCollisionException) {
-                   result.invoke(UiState.Failure("Authentication failed, Email already registered."))
-               } catch (e: Exception) {
-                   result.invoke(UiState.Failure(e.message))
-               }
-           }
-
-
-       }.addOnFailureListener {
-           result.invoke(
-               UiState.Failure(
-                   it.localizedMessage
-               )
-           )
-       }
+class AuthRepositoryImpl  @Inject constructor(private val auth: FirebaseAuth):AuthRepository {
+    override suspend fun login(email: String, password: String): Flow<UiState<String>> =flow{
+        try {
+            emit(UiState.Loading)
+            val resultAuth=auth.signInWithEmailAndPassword(email,password).await()
+            resultAuth.user?.let {
+                emit(UiState.Success(it.uid))
+            }?:run {
+                emit(UiState.Failure(Exception("User not Found").toString()))
+            }
+        }catch (e:Exception){
+           emit(UiState.Failure(e.toString()))
+        }
+    }
+    companion object{
+        private const val TAG="AuthRepositoryImpl"
     }
 }

@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.UserMainActivity">
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -16,17 +15,15 @@
         app:layout_constraintBottom_toTopOf="@id/buttomMenu"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/user" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/buttomMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-35dp"
         android:background="@drawable/nav_bar_radius"
         app:itemIconSize="24dp"
         app:itemIconTint="@color/primary_color"
         app:itemTextColor="@color/primary_color"
-        app:labelVisibilityMode="selected"
+        app:labelVisibilityMode="labeled"
         app:itemActiveIndicatorStyle="@style/ShapeAppearance.MaterialComponents.MediumComponent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

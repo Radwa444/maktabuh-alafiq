@@ -1,0 +1,20 @@
+<!-- res/drawable/ring_shape.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="line">
+
+
+    <!-- تحديد سمك الحافة الخارجية والداخلية -->
+    <size
+        android:width="200dp"
+        android:height="200dp"/>
+
+    <!-- تحديد لون الحافة وسماكتها -->
+    <stroke
+        android:width="20dp"
+        android:color="#FF0000"/>
+
+    <!-- تحديد لون الخلفية للحلقة (يمكن استخدام شفافية) -->
+    <solid android:color="#00FFFFFF"/>
+    <corners android:bottomLeftRadius="100dp"/>
+
+</shape>

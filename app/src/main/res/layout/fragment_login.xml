@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.maktabuhalafiq.ui.auth.viewModels.AuthViewModel" />
+            type="com.example.maktabuhalafiq.ui.auth.viewModels.LoginViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
@@ -46,6 +46,8 @@
             style="@style/fillEditStyle"
             android:hint="@string/email"
             android:ems="10"
+            android:text="@={viewmodel.email}"
+            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,8 +73,10 @@
             style="@style/fillEditStyle"
             android:hint="@string/password"
             android:ems="10"
+            android:text="@={viewmodel.password}"
             android:drawableStart="@drawable/baseline_visibility_24"
             android:layout_width="match_parent"
+            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPassword" />
@@ -109,7 +113,6 @@
                 android:id="@+id/checkBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -117,7 +120,6 @@
             android:id="@+id/LoginButton"
             style="@style/buttonStyleDart"
             android:layout_width="match_parent"
-
             android:layout_height="@dimen/heightButton"
             android:layout_marginTop="64dp"
             android:text="@string/login"

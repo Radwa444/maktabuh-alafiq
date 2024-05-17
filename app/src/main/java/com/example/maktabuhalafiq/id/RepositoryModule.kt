@@ -32,7 +32,7 @@ object RepositoryModule {
     }
     @Provides
     @Singleton
-    fun provideAuthRepository(databaseReference: DatabaseReference,Auth: FirebaseAuth): AuthRepository {
-        return AuthRepositoryImpl(databaseReference,Auth)
+    fun provideAuthRepository(auth: FirebaseAuth): AuthRepository {
+        return AuthRepositoryImpl(auth)
     }
 }
