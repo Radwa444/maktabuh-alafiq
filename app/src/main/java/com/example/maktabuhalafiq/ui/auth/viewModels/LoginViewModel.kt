@@ -3,6 +3,7 @@ package com.example.maktabuhalafiq.ui.auth.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.maktabuhalafiq.data.repository.auth.AuthRepositoryImpl
+import com.example.maktabuhalafiq.data.repository.user.UserPreferenceRepository
 import com.example.maktabuhalafiq.utils.UiState
 import com.example.maktabuhalafiq.utils.isValidEmail
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +19,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-   private val authRepositoryImpl: AuthRepositoryImpl
+   private val authRepositoryImpl: AuthRepositoryImpl,
+   private val userPreferenceRepository: UserPreferenceRepository
 ) : ViewModel(){
      val loginState:MutableStateFlow<UiState<String>?> = MutableStateFlow(null)
      val email=MutableStateFlow("")
@@ -36,20 +38,16 @@ fun login(){
         if (loginValid.first()){
             authRepositoryImpl.login(email,password).onEach {
                 when(it){
-                    is UiState.Loading ->{
-                      loginState.update {
-                          UiState.Loading
-                      }
+                    is UiState.Loading -> {
+                        loginState.update { UiState.Loading }
                     }
-                    is  UiState.Success -> {
-                        loginState.update {
-                            UiState.Success("login successfully")
-                        }
-
-
+                    is UiState.Success -> {
+                        loginState.update { UiState.Success("login successfully") }
+                        userPreferenceRepository.saveLoginState(true)
+                        userPreferenceRepository.saveUserID(it.data.id)
                     }
                     is UiState.Failure -> {
-                    loginState.value=UiState.Failure(it.error?:("Error Login"))
+                        loginState.value = UiState.Failure(it.error ?: "Error Login")
                     }
                 }
 

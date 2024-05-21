@@ -56,6 +56,17 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/title" />
+            <RatingBar
+                android:id="@+id/simpleRatingBar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:progressTint="@color/primary_color"
+                android:rating="4"
+                android:rotationY="180"
+                app:layout_constraintEnd_toEndOf="@+id/text_author"
+                app:layout_constraintTop_toBottomOf="@+id/text_author" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
