@@ -35,4 +35,6 @@
     <string name="More">المزيد</string>
     <string name="prince_book">160 جنية</string>
     <string name="enter_name">أدخل الاسم</string>
+    <string name="ok">ok</string>
+    <string name="retry">retry</string>
 </resources>
