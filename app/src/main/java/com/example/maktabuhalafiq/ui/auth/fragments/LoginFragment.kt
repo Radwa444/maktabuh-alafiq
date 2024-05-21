@@ -16,6 +16,7 @@ import com.example.maktabuhalafiq.databinding.FragmentLoginBinding
 import com.example.maktabuhalafiq.ui.activity.UserMainActivity
 import com.example.maktabuhalafiq.ui.auth.viewModels.LoginViewModel
 import com.example.maktabuhalafiq.ui.common.views.ProgressDialog
+import com.example.maktabuhalafiq.ui.showSnakeBarError
 import com.example.maktabuhalafiq.utils.UiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -47,7 +48,8 @@ class LoginFragment : Fragment() {
         initViewModel()
         binding.checkBox.setOnCheckedChangeListener { _, isChecked ->
             if (!isChecked) {
-                Toast.makeText(requireContext(), "add", Toast.LENGTH_SHORT).show()
+                view?.showSnakeBarError("Agree to the terms")
+//                Toast.makeText(requireContext(), "add", Toast.LENGTH_SHORT).show()
             }
             viewModel.isCheckboxChecked.value = isChecked
         }
