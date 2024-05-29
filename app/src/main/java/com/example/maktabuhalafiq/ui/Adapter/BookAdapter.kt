@@ -42,7 +42,7 @@ class BookAdapter(
                 buttomPrice.text = book.price.toString()
                 title.text = book.title
                 textAuthor.text = book.author
-
+                simpleRatingBar.rating=book.rating.toFloat()
                 root.setOnClickListener { onItemClick(book) }
             }
         }
