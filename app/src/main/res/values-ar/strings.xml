@@ -48,4 +48,5 @@
     <string name="comment">اضافة تعليق او ملاحظة</string>
     <string name="Move_to_pay">الانتقال للدفع</string>
     <string name="loadind">Loadind....</string>
+    <string name="textview">TextView</string>
 </resources>

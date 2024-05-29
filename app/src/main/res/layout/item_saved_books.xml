@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:background="@drawable/container_cart"
@@ -30,9 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="11dp"
-            android:text="TextView"
+            android:text="@string/textview"
             android:textColor="@color/black"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/image_book_save"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:textColor="@color/Pantone"
-            android:text="TextView"
+            android:text="@string/textview"
             app:layout_constraintEnd_toEndOf="@+id/name_book_save"
             app:layout_constraintTop_toBottomOf="@+id/name_book_save" />
 
@@ -51,9 +50,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="TextView"
+            android:text="@string/textview"
             android:textColor="@color/black"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/name_author_save"
             app:layout_constraintTop_toBottomOf="@+id/name_author_save" />
 
