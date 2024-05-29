@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/authorFragment"
-        android:name="com.example.maktabuhalafiq.AuthorFragment"
+        android:name="com.example.maktabuhalafiq.ui.author.AuthorFragment"
         android:label="fragment_author"
         tools:layout="@layout/fragment_author" />
     <fragment

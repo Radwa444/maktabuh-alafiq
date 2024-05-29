@@ -3,6 +3,8 @@ import android.app.Application
 import android.content.Context
 import com.example.maktabuhalafiq.data.repository.auth.AuthRepository
 import com.example.maktabuhalafiq.data.repository.auth.AuthRepositoryImpl
+import com.example.maktabuhalafiq.data.repository.author.AuthorRepository
+import com.example.maktabuhalafiq.data.repository.author.AuthorRepositoryImpl
 import com.example.maktabuhalafiq.data.repository.books.BooksRepository
 import com.example.maktabuhalafiq.data.repository.books.BooksRepositoryImpl
 import com.example.maktabuhalafiq.data.repository.catagories.CategoriesRepository
@@ -27,6 +29,11 @@ object RepositoryModule {
     @Singleton
     fun provideCategoryRepository(databaseReference: DatabaseReference): CategoriesRepository {
         return CategoriesRepositoryImpl(databaseReference.child("Categories"))
+    }
+    @Provides
+    @Singleton
+    fun provideAuthorRepository(databaseReference: DatabaseReference): AuthorRepository {
+        return AuthorRepositoryImpl(databaseReference.child("Author"))
     }
 
     @Provides

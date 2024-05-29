@@ -26,6 +26,11 @@
         <item name="android:textStyle">bold</item>
 
     </style>
+    <style name="textCart">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primary_color</item>
+
+    </style>
 
     <style name="editText" >
         android:layout_marginStart="16dp"

@@ -2,13 +2,12 @@ package com.example.maktabuhalafiq.ui.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.maktabuhalafiq.ArchivesFragment
-import com.example.maktabuhalafiq.AuthorFragment
+import com.example.maktabuhalafiq.ui.author.AuthorFragment
 import com.example.maktabuhalafiq.CardFragment
 import com.example.maktabuhalafiq.ui.home.HomeFragment
 import com.example.maktabuhalafiq.R

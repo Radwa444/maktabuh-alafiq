@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.maktabuhalafiq.R
 import com.example.maktabuhalafiq.databinding.FragmentCategoryBinding
 import com.example.maktabuhalafiq.ui.book.BooksFragment
+import com.example.maktabuhalafiq.ui.common.views.ProgressDialog
 import com.example.maktabuhalafiq.utils.SpaceItemCtagory
 import com.example.maktabuhalafiq.utils.UiState
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,6 +24,9 @@ class CategoryFragment : Fragment() {
     private lateinit var binding: FragmentCategoryBinding
     private val viewModel: CategoryViewModel by viewModels()
     private lateinit var categoryAdapter: CategoryAdapter
+    val progressDialog by lazy {
+        ProgressDialog.createProgressDialog(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,15 +64,16 @@ class CategoryFragment : Fragment() {
         viewModel.categories.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UiState.Success -> {
+                    progressDialog.dismiss()
                     val categories = state.data
                     categoryAdapter.submitList(categories)
                 }
-
                 is UiState.Failure -> {
+                    progressDialog.dismiss()
                     Log.e("CategoryFragment", "Failed to fetch categories: ${state.error}")
                 }
-                else -> {
-
+                is UiState.Loading ->{
+                    progressDialog.show()
                 }
             }
         }
