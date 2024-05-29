@@ -7,4 +7,5 @@ interface UserPreferenceRepository {
    suspend fun isUserLoggedIn(): Flow<Boolean>
    suspend fun saveLoginState(isLoggedIn:Boolean)
    suspend fun saveUserID(userID: String)
+   suspend fun getUserID(): Flow<String?>
 }

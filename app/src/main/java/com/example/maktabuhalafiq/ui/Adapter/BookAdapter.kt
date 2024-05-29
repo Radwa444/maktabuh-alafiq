@@ -8,7 +8,8 @@ import com.example.maktabuhalafiq.databinding.ItemBookBinding
 import com.squareup.picasso.Picasso
 class BookAdapter(
     private var bookList: List<Book>,
-    private val onItemClick: (Book) -> Unit
+    private val onItemClick: (Book) -> Unit,
+    private val addCart: (Book) -> Unit,
 ) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -44,6 +45,9 @@ class BookAdapter(
                 textAuthor.text = book.author
                 simpleRatingBar.rating=book.rating.toFloat()
                 root.setOnClickListener { onItemClick(book) }
+                buttomPrice.setOnClickListener {
+                    addCart(book)
+                }
             }
         }
     }

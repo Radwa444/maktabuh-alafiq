@@ -5,28 +5,39 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.maktabuhalafiq.data.repository.books.BooksRepository
+import com.example.maktabuhalafiq.data.repository.cart.CartRepository
+import com.example.maktabuhalafiq.data.repository.user.UserPreferenceRepository
 import com.example.maktabuhalafiq.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 @HiltViewModel
-class BookViewModel @Inject constructor(private val repository: BooksRepository) : ViewModel(){
-    private val _books = MutableLiveData<UiState<List<Book>>>()
-    val books: LiveData<UiState<List<Book>>> get() = _books
-    fun fetchBooks(idCategory: Int) {
-        _books.value = UiState.Loading
+class BooksViewModel @Inject constructor(
+    private val cartRepository: CartRepository,
+    private val userRepository:UserPreferenceRepository
+) : ViewModel() {
+    private val _books = MutableLiveData<List<Book>>()
 
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
+    val books: LiveData<List<Book>> get() = _books
+    fun fetchBooks() {
 
-            }catch (e:Exception){
-                Log.e("BookViewModel", "Error loading books for category $idCategory", e)
+        val fetchedBooks = listOf<Book>() // Dummy list, replace with actual fetching from repository
+        _books.value = fetchedBooks
+    }
+
+
+    fun addToCart( book: Book, quantity: Int) {
+        viewModelScope.launch {
+            val userId = userRepository.getUserID().first()
+            if (userId != null) {
+                cartRepository.addToCart(userId, book, quantity)
             }
 
         }
     }
 }
-
