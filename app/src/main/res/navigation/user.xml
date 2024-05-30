@@ -31,7 +31,7 @@
         tools:layout="@layout/fragment_archives" />
     <fragment
         android:id="@+id/cardFragment"
-        android:name="com.example.maktabuhalafiq.CardFragment"
+        android:name="com.example.maktabuhalafiq.ui.cart.CardFragment"
         android:label="fragment_card"
         tools:layout="@layout/fragment_card" />
     <fragment
