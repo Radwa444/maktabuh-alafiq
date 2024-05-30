@@ -33,4 +33,10 @@ class UserPreferenceRepositoryImpl(private val context: Context) : UserPreferenc
             preferences[DataStoreKeys.USER_ID] = userID
         }
     }
+
+    override suspend fun getUserID(): Flow<String?> {
+        return context.dataStore.data.map { preferences ->
+            preferences[DataStoreKeys.USER_ID]
+        }
+    }
 }

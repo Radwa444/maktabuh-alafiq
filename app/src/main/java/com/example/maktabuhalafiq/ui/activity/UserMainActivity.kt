@@ -8,7 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.maktabuhalafiq.ArchivesFragment
 import com.example.maktabuhalafiq.ui.author.AuthorFragment
-import com.example.maktabuhalafiq.CardFragment
+import com.example.maktabuhalafiq.ui.cart.CardFragment
 import com.example.maktabuhalafiq.ui.home.HomeFragment
 import com.example.maktabuhalafiq.R
 import com.example.maktabuhalafiq.databinding.ActivityUserMainBinding
@@ -29,8 +29,6 @@ class UserMainActivity  : AppCompatActivity() {
             binding.buttomMenu.setOnItemSelectedListener{menu ->when(menu.itemId){
             R.id.homeFragment-> {
                 replaceragment(HomeFragment())
-
-
                 true
             }
             R.id.categoryFragment-> {

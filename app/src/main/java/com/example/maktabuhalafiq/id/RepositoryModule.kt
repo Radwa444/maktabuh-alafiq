@@ -7,6 +7,8 @@ import com.example.maktabuhalafiq.data.repository.author.AuthorRepository
 import com.example.maktabuhalafiq.data.repository.author.AuthorRepositoryImpl
 import com.example.maktabuhalafiq.data.repository.books.BooksRepository
 import com.example.maktabuhalafiq.data.repository.books.BooksRepositoryImpl
+import com.example.maktabuhalafiq.data.repository.cart.CartRepository
+import com.example.maktabuhalafiq.data.repository.cart.CartRepositoryImpl
 import com.example.maktabuhalafiq.data.repository.catagories.CategoriesRepository
 import com.example.maktabuhalafiq.data.repository.catagories.CategoriesRepositoryImpl
 import com.example.maktabuhalafiq.data.repository.user.UserPreferenceRepository
@@ -61,5 +63,10 @@ object RepositoryModule {
         return UserPreferenceRepositoryImpl(context)
 
 
+    }
+    @Provides
+    @Singleton
+    fun provideCartRepository(databaseReference: DatabaseReference):CartRepository{
+        return CartRepositoryImpl(databaseReference.child("CartItem"))
     }
 }
