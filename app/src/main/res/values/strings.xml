@@ -49,4 +49,11 @@
     <string name="comment">اضافة تعليق او ملاحظة</string>
     <string name="Move_to_pay">الانتقال للدفع</string>
     <string name="textview">TextView</string>
+    <string name="Payment_and_shipping">الدفع والشحن</string>
+    <string name="firstName">الاسم الاول</string>
+    <string name="lastName">الاسم الاخير</string>
+    <string name="phone">رقم الهاتف</string>
+    <string name="city">المدينة</string>
+    <string name="Governorate">المحافظة</string>
+    <string name="Country">الدولة</string>
 </resources>

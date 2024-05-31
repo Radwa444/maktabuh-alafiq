@@ -79,9 +79,7 @@ class BooksFragment : Fragment() {
     private fun addCart(book: Book) {
         lifecycleScope.launch {
             try {
-                val cartBooks = mutableListOf<Book>() // إنشاء قائمة متغيرة محلية للكتب في السلة
-                cartBooks.add(book)
-                viewModel.addToCart( cartBooks, 1)
+                viewModel.addToCart( book, 1)
                 Toast.makeText(requireContext(), "تمت الإضافة إلى السلة", Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
                 Log.e("BooksFragment", "خطأ في إضافة إلى السلة: ${e.message}")

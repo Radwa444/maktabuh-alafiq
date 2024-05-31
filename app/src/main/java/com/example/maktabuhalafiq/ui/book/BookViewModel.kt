@@ -26,12 +26,12 @@ class BooksViewModel @Inject constructor(
     val books: LiveData<List<Book>> get() = _books
     fun fetchBooks() {
 
-        val fetchedBooks = listOf<Book>() // Dummy list, replace with actual fetching from repository
+        val fetchedBooks = listOf<Book>()
         _books.value = fetchedBooks
     }
 
 
-    fun addToCart( book: List<Book>, quantity: Int) {
+    fun addToCart( book: Book, quantity: Int) {
         viewModelScope.launch {
             val userId = userRepository.getUserID().first()
             if (userId != null) {

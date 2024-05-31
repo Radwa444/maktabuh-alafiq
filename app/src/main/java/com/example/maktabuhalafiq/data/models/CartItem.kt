@@ -4,5 +4,8 @@ import Book
 
 data class CartItem(
     val userId: String,
-    val books: List<Book>,
+    val books: Book,
     val quantity: Int)
+{
+    constructor() : this("", Book(), 0)
+}
