@@ -1,14 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     tools:context=".DataPaymentFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/onClickButtonBack2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView40"
+        style="@style/mainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="الدفع"
+        app:layout_constraintBottom_toBottomOf="@+id/onClickButtonBack"
+        app:layout_constraintEnd_toStartOf="@+id/onClickButtonBack2"
+        app:layout_constraintTop_toTopOf="@+id/onClickButtonBack2" />
+
+    <ImageView
+        android:id="@+id/imageView50"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="50dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/stap_two_payment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/shap_payment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView50" />
+
+    <LinearLayout
+        android:id="@+id/maximum"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginHorizontal="16dp"
+        android:elevation="10dp"
+        android:background="@drawable/cartainer_data_cart"
+        app:layout_constraintTop_toBottomOf="@+id/imageView50"
+        >
+        <TextView
+            android:id="@+id/textView41"
+            style="@style/textLocal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center"
+            android:text="الحد الاقصى" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/Balance"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:elevation="10dp"
+        android:background="@drawable/cartainer_data_cart"
+        app:layout_constraintTop_toBottomOf="@+id/maximum"
+        >
+        <TextView
+            android:id="@+id/textView42"
+            style="@style/textLocal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center"
+            android:text="الرصيد" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Cashback"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/cartainer_data_cart"
+        android:elevation="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/Balance"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/textView43"
+            style="@style/textLocal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center"
+            android:text="كاش باك" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView44"
+        style="@style/textLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="16dp"
+        android:text="المبلغ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Cashback" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edit_text_nam"
+        android:background="@drawable/eidt_enter_money"
+        android:layout_width="match_parent"
+        android:paddingRight="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:ems="10"
+        android:hint="من فضلك ادخل مبلغ "
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView44"  />
+
+    <TextView
+        android:id="@+id/textView45"
+        style="@style/textLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="16dp"
+        android:text="رقم الموبايل"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView45"
+        app:layout_constraintEnd_toStartOf="@+id/textView45"
+        app:layout_constraintTop_toTopOf="@+id/textView45" />
+
+    <Button
+        style="@style/buttonStyleDart"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="56dp"
+        android:text="شراء الان"
+        app:layout_constraintTop_toBottomOf="@+id/textView45"
+        tools:layout_editor_absoluteX="16dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
