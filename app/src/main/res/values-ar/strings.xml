@@ -56,4 +56,13 @@
     <string name="city">المدينة</string>
     <string name="Governorate">المحافظة</string>
     <string name="Country">الدولة</string>
+    <string name="download_complete">Download Complete</string>
+    <string name="Favorite_books">الكتب المفضلة</string>
+    <string name="Download_books">الكتب المُحملة</string>
+    <string name="Publish_a_book">نشر كتاب</string>
+    <string name="Connect_with_us">تواصل معنا</string>
+    <string name="who_are_we">من نحن</string>
+    <string name="settings">الإعدادات</string>
+    <string name="Favorite">المفضلة</string>
+    <string name="NoProductsHaveBeenAddedToTheFavoritesList">لم يتم إضافة منتجات الى قائمة المفضلة</string>
 </resources>

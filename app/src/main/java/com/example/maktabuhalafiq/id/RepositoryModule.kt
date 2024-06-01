@@ -11,6 +11,8 @@ import com.example.maktabuhalafiq.data.repository.cart.CartRepository
 import com.example.maktabuhalafiq.data.repository.cart.CartRepositoryImpl
 import com.example.maktabuhalafiq.data.repository.catagories.CategoriesRepository
 import com.example.maktabuhalafiq.data.repository.catagories.CategoriesRepositoryImpl
+import com.example.maktabuhalafiq.data.repository.home.HomeRepository
+import com.example.maktabuhalafiq.data.repository.home.HomeRepositoryImpl
 import com.example.maktabuhalafiq.data.repository.user.UserPreferenceRepository
 import com.example.maktabuhalafiq.data.repository.user.UserPreferenceRepositoryImpl
 import com.google.firebase.auth.FirebaseAuth
@@ -68,5 +70,10 @@ object RepositoryModule {
     @Singleton
     fun provideCartRepository(databaseReference: DatabaseReference):CartRepository{
         return CartRepositoryImpl(databaseReference.child("CartItem"))
+    }
+    @Provides
+    @Singleton
+    fun provideBooksDownloadRepository(databaseReference: DatabaseReference): HomeRepository {
+        return HomeRepositoryImpl(databaseReference.child("BooksDownload"))
     }
 }
