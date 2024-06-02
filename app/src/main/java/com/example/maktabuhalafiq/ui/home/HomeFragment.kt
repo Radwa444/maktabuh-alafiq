@@ -29,7 +29,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.example.maktabuhalafiq.FavoriteBooksFragment
+import com.example.maktabuhalafiq.ui.favoriteBooks.FavoriteBooksFragment
 import com.example.maktabuhalafiq.R
 import com.example.maktabuhalafiq.data.models.BooksDownload
 import com.example.maktabuhalafiq.ui.Adapter.ItemBookAdapter
@@ -37,7 +37,6 @@ import com.example.maktabuhalafiq.ui.Adapter.ItemProductAdapter
 import com.example.maktabuhalafiq.ui.Adapter.ItemProductDownloadAdapter
 import com.example.maktabuhalafiq.databinding.FragmentHomeBinding
 import com.example.maktabuhalafiq.data.models.ItemPorduct
-import com.example.maktabuhalafiq.data.models.ItemProductDownload
 import com.example.maktabuhalafiq.ui.Adapter.ButtonCategoriesAdapter
 import com.example.maktabuhalafiq.ui.book.BooksFragment
 import com.example.maktabuhalafiq.ui.common.views.ProgressDialog

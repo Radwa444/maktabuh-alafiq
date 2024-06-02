@@ -1,6 +1,7 @@
 package com.example.maktabuhalafiq.id
 import android.app.Application
 import android.content.Context
+import com.example.maktabuhalafiq.data.datasource.datastore.DataStoreManager
 import com.example.maktabuhalafiq.data.repository.auth.AuthRepository
 import com.example.maktabuhalafiq.data.repository.auth.AuthRepositoryImpl
 import com.example.maktabuhalafiq.data.repository.author.AuthorRepository
@@ -43,9 +44,13 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideBooksRepository(databaseReference: DatabaseReference): BooksRepository {
-        return BooksRepositoryImpl(databaseReference)
+        return BooksRepositoryImpl(databaseReference.child("books"))
     }
-
+    @Provides
+    @Singleton
+    fun provideDataStoreManager(context: Context): DataStoreManager {
+        return DataStoreManager(context)
+    }
     @Provides
     @Singleton
     fun provideAuthRepository(auth: FirebaseAuth,databaseReference: DatabaseReference): AuthRepository {

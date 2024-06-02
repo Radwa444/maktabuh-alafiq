@@ -6,5 +6,5 @@ import Book
 import com.example.maktabuhalafiq.utils.UiState
 
 interface BooksRepository {
-    suspend fun getBooks(categoryId:Int) : UiState<List<Book>>
+    suspend fun getBookById(categoryId:Int) : UiState<Book>
 }
