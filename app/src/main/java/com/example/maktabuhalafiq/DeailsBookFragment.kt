@@ -43,7 +43,7 @@ class DeailsBookFragment : Fragment() {
             binding.categoryBook.text = "الصنف: ${it.publisher}"
             binding.numberPart.text = "عدد الصفحات: ${it.pages}"
             binding.buying.text = it.price.toString()
-
+            observeArchivesStatus(it.id.toString())
             observeFavoriteStatus(it.id.toString())
             setupClickListeners(it.id.toString())
         } ?: Log.e("DetailsBookFragment", "No book received")
@@ -60,6 +60,16 @@ class DeailsBookFragment : Fragment() {
             }
         }
     }
+    private fun observeArchivesStatus(bookId: String) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            dataStoreManager.archivesBooksFlow.collect { archivesBooks ->
+                val isArchives = archivesBooks.contains(bookId)
+                binding.buttonSave.setImageResource(
+                    if (isArchives) R.drawable.ic_archives_22 else R.drawable.ison_bookmark
+                )
+            }
+        }
+    }
 
     private fun setupClickListeners(bookId: String) {
         binding.buttomFavorite.setOnClickListener {
@@ -67,7 +77,13 @@ class DeailsBookFragment : Fragment() {
                 dataStoreManager.toggleFavoriteBook(bookId)
             }
         }
+        binding.buttonSave.setOnClickListener {
+            viewLifecycleOwner.lifecycleScope.launch {
+                dataStoreManager.toggleArchivesBook(bookId)
+            }
+        }
     }
+
 
     private fun onClickBack() {
         binding.buttomBack.setOnClickListener {

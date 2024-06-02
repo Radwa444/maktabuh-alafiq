@@ -17,11 +17,16 @@ object DataStoreKeys {
     val IS_USER_LOGGED_IN = booleanPreferencesKey("is_user_logged_in")
     val USER_ID = stringPreferencesKey("user_id")
     val FAVORITE_BOOKS = stringSetPreferencesKey("favorite_books")
+    val ARCHIVES_BOOKS = stringSetPreferencesKey("archives_books")
 }
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = DataStoreKeys.E_COMMERCE_PREFERENCES)
 
 class DataStoreManager @Inject constructor(private val context: Context) {
+    val archivesBooksFlow: Flow<Set<String>> = context.dataStore.data
+        .map { preferences ->
+        preferences[DataStoreKeys.ARCHIVES_BOOKS] ?: emptySet()
+    }
 
     val favoriteBooksFlow: Flow<Set<String>> = context.dataStore.data
         .map { preferences ->
@@ -37,6 +42,17 @@ class DataStoreManager @Inject constructor(private val context: Context) {
                 currentFavorites + bookId
             }
             preferences[DataStoreKeys.FAVORITE_BOOKS] = updatedFavorites
+        }
+    }
+    suspend fun toggleArchivesBook(bookId: String) {
+        context.dataStore.edit { preferences ->
+            val currentFavorites = preferences[DataStoreKeys.ARCHIVES_BOOKS] ?: emptySet()
+            val updatedFavorites = if (currentFavorites.contains(bookId)) {
+                currentFavorites - bookId
+            } else {
+                currentFavorites + bookId
+            }
+            preferences[DataStoreKeys.ARCHIVES_BOOKS] = updatedFavorites
         }
     }
 }
