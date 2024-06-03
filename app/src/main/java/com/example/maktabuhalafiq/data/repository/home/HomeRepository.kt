@@ -5,4 +5,5 @@ import com.example.maktabuhalafiq.utils.UiState
 
 interface HomeRepository {
     suspend fun getBooksDownload(): UiState<List<BooksDownload>>
+    suspend fun getBookById(bookId:Int) : UiState<BooksDownload>
 }

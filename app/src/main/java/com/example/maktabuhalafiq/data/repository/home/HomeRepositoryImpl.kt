@@ -28,4 +28,19 @@ class HomeRepositoryImpl @Inject constructor(private val databaseReference: Data
 
         }
     }
+
+    override suspend fun getBookById(id: Int): UiState<BooksDownload> {
+        return try {
+            val bookSnapshot = databaseReference.child(id.toString()).get().await()
+            val book = bookSnapshot.getValue(BooksDownload::class.java)
+            if (book != null) {
+                UiState.Success(book)
+            } else {
+                UiState.Failure("Book not found")
+            }
+        } catch (e: Exception) {
+            Log.e("BooksRepository", "Failed to fetch book by ID $id: ${e.message}")
+            UiState.Failure(e.message ?: "Unknown error occurred")
+        }
+    }
 }

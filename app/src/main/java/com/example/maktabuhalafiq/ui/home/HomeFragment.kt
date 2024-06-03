@@ -25,12 +25,14 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.maktabuhalafiq.ui.favoriteBooks.FavoriteBooksFragment
 import com.example.maktabuhalafiq.R
+import com.example.maktabuhalafiq.data.datasource.datastore.DataStoreManager
 import com.example.maktabuhalafiq.data.models.BooksDownload
 import com.example.maktabuhalafiq.ui.Adapter.ItemBookAdapter
 import com.example.maktabuhalafiq.ui.Adapter.ItemProductAdapter
@@ -40,11 +42,13 @@ import com.example.maktabuhalafiq.data.models.ItemPorduct
 import com.example.maktabuhalafiq.ui.Adapter.ButtonCategoriesAdapter
 import com.example.maktabuhalafiq.ui.book.BooksFragment
 import com.example.maktabuhalafiq.ui.common.views.ProgressDialog
+import com.example.maktabuhalafiq.ui.download.DownloadFragment
 import com.example.maktabuhalafiq.utils.SpaceItemDecoration
 
 import com.example.maktabuhalafiq.utils.UiState
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import kotlin.math.abs
 
 @AndroidEntryPoint
@@ -57,8 +61,9 @@ class HomeFragment : Fragment() {
     private lateinit var booksDownloaAdapter: ItemProductDownloadAdapter
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var downloadCompleteReceiver: BroadcastReceiver
+    private lateinit var dataStoreManager: DataStoreManager
+    private var download: BooksDownload? = null
     private var downloadId: Long = -1L
-
     private val ViewModel: HomeViewModel by viewModels()
     private lateinit var  buttonCategoriesAdapter: ButtonCategoriesAdapter
     val progressDialog by lazy {
@@ -71,42 +76,25 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-
-
         viewPager2 = binding.viewPager2
         recyclerView=binding.buttonCategories
-        val view = binding.navigationView.getHeaderView(0)
-        val textView = view.findViewById<TextView>(R.id.textView57)
-        val navFavorite=view.findViewById<LinearLayout>(R.id.favorite_books)
-
-        navFavorite.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerView2, FavoriteBooksFragment())
-                .addToBackStack(null)
-                .commit()
-        }
-        textView.text = "Radwa saeed"
-
-
-
-
-
+        dataStoreManager = DataStoreManager(requireContext())
+        drawerLayout = binding.drawerLayout
         init()
         setUpTransformer()
         buttonCategory()
         productItem()
         observerBooksDownload()
-        drawerLayout = binding.drawerLayout
         setupNavigationDrawer()
         drawableNavigtion()
         booksDownloaAdapter = ItemProductDownloadAdapter(emptyList()) { booksDownload ->
             downloadBook(booksDownload)
+            setupClickListeners(booksDownload.id.toString())
+            observeFavoriteStatus(booksDownload.id.toString())
         }
         binding.itemDownload.adapter = booksDownloaAdapter
+        binding.itemDownload.addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.dimenButtonCategories)))
         observerBooksDownload()
-
-
         downloadCompleteReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
                 val id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
@@ -122,34 +110,31 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupNavigationDrawer() {
-        val navView: NavigationView = binding.navigationView
-
-        //navView.setNavigationItemSelectedListener {
-//            when (it.itemId) {
-//                R.id.Favorite_books -> {
-//                    // Handle home click
-//                }
-//                R.id.Download_books -> {
-//                    // Handle profile click
-//                }
-//                R.id.Publish_a_book -> {
-//                    // Handle settings click
-//                }
-//                R.id.Connect_with_us -> {
-//                    // Handle settings click
-//                }
-//                R.id.who_are_we -> {
-//                    // Handle settings click
-//                }
-//                R.id.Settings -> {
-//                    // Handle settings click
-//                }
-//            }
-//            drawerLayout.closeDrawers()
-//            true
-//        }
+        val view = binding.navigationView.getHeaderView(0)
+        val textView = view.findViewById<TextView>(R.id.textView57)
+        val navFavorite=view.findViewById<LinearLayout>(R.id.favorite_books)
+        val navDownload=view.findViewById<LinearLayout>(R.id.download_books)
+        navDownload.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView2, DownloadFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+        navFavorite.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView2, FavoriteBooksFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+        textView.text = "Radwa saeed"
     }
-
+    private fun observeFavoriteStatus(bookId: String) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            dataStoreManager.downloadBooksFlow.collect { favoriteBooks ->
+                val isFavorite = favoriteBooks.contains(bookId)
+            }
+        }
+    }
 
     private fun drawableNavigtion() {
 
@@ -294,10 +279,8 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
     private fun observerBooksDownload() {
-
-
-
 
         ViewModel.booksDownload.observe(viewLifecycleOwner) { state ->
             when (state) {
@@ -334,4 +317,10 @@ class HomeFragment : Fragment() {
             Log.d("ErrorNavCategory", e.message.toString())
         }
     }
+    private fun setupClickListeners(bookId: String) {
+        viewLifecycleOwner.lifecycleScope.launch {
+                dataStoreManager.toggleDownloadBook(bookId)
+            }
+    }
+
 }
