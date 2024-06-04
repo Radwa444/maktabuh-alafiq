@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.example.maktabuhalafiq.PublishBookFragment
 import com.example.maktabuhalafiq.ui.favoriteBooks.FavoriteBooksFragment
 import com.example.maktabuhalafiq.R
 import com.example.maktabuhalafiq.data.datasource.datastore.DataStoreManager
@@ -67,7 +68,6 @@ class HomeFragment : Fragment() {
     private lateinit var dataStoreManager: DataStoreManager
     private lateinit var  bestSellingBooksAdaptar: bestSellingBooksAdaptar
     private lateinit var  mostRatedBooksAdapter: MostRatedBooksAdapter
-
     private var download: BooksDownload? = null
     private var downloadId: Long = -1L
     private val ViewModel: HomeViewModel by viewModels()
@@ -120,6 +120,7 @@ class HomeFragment : Fragment() {
         val textView = view.findViewById<TextView>(R.id.textView57)
         val navFavorite=view.findViewById<LinearLayout>(R.id.favorite_books)
         val navDownload=view.findViewById<LinearLayout>(R.id.download_books)
+        val navPublish=view.findViewById<LinearLayout>(R.id.Publish_books)
         navDownload.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainerView2, DownloadFragment())
@@ -129,6 +130,12 @@ class HomeFragment : Fragment() {
         navFavorite.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainerView2, FavoriteBooksFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+        navPublish.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView2, PublishBookFragment())
                 .addToBackStack(null)
                 .commit()
         }

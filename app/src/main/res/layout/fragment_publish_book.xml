@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".PublishBookFragment">
+
+
+    <ImageView
+        android:id="@+id/OnClickBackPublish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/baseline_arrow_forward_ios_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView62"
+        style="@style/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17dp"
+        android:text="إضافة كتاب"
+        app:layout_constraintBottom_toBottomOf="@+id/OnClickBackPublish"
+        app:layout_constraintEnd_toStartOf="@+id/OnClickBackPublish"
+        app:layout_constraintTop_toTopOf="@+id/OnClickBackPublish" />
+
+    <TextView
+        android:id="@+id/textView63"
+        style="@style/textLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="اسم العمل (اللغة العربية)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+    <EditText
+        android:id="@+id/editTextBusinessName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/eidt_loiction"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/textView63"
+        app:layout_constraintTop_toBottomOf="@+id/textView63"
+        tools:ignore="RtlHardcoded" />
+    <LinearLayout
+        android:id="@+id/group_text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBusinessName"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            style="@style/textLocal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/numberOfPages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+        <TextView
+            style="@style/textLocal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/grop"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/group_text2">
+
+        <EditText
+            android:id="@+id/editTextNumberPage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="@drawable/eidt_loiction"
+            android:ems="10"
+            android:inputType="text"
+            tools:ignore="RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/editTextCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:background="@drawable/eidt_loiction"
+
+            android:inputType="text"
+
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/group_text3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:weightSum="2"
+        app:layout_constraintTop_toBottomOf="@+id/grop"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            style="@style/textLocal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/numberOfPages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+        <TextView
+            style="@style/textLocal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/name_author"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/grop2"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/group_text3">
+
+        <EditText
+            android:id="@+id/editTextNumberPage2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="@drawable/eidt_loiction"
+            android:ems="10"
+            android:inputType="text"
+            tools:ignore="RtlHardcoded" />
+
+        <EditText
+            android:id="@+id/editTextNameAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/eidt_loiction"
+            android:ems="10"
+            android:inputType="text"
+
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/image"
+        style="@style/textLocal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:text="صورة الغلاف الأمامية"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grop2" />
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/eidt_loiction"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp">
+        <ImageView
+            android:id="@+id/imageView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/uploadtocloud" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/image2"
+        style="@style/textLocal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:text="صورة الغلاف الخلفية"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear1" />
+
+    <LinearLayout
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/eidt_loiction"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/image2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/uploadtocloud" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView64"
+        style="@style/textLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="يجب ان يكون صورة المقاس 20 * \n14 بنظام الوان CMYK عالي الجودة "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

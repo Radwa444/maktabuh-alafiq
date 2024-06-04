@@ -65,4 +65,8 @@
     <string name="settings">الإعدادات</string>
     <string name="Favorite">المفضلة</string>
     <string name="NoProductsHaveBeenAddedToTheFavoritesList">لم يتم إضافة منتجات الى قائمة المفضلة</string>
+    <string name="publishBook">نشر كتاب</string>
+    <string name="Category">التصنيف</string>
+    <string name="numberOfPages">عدد الصفحات</string>
+    <string name="name_author">اسم الكاتب</string>
 </resources>

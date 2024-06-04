@@ -124,4 +124,40 @@
                 app:layout_constraintTop_toTopOf="@+id/imagedownload" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/Publish_books"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="16dp"
+        android:elevation="10dp"
+        android:background="@drawable/cartainer_data_cart"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/download_books"
+        tools:ignore="MissingConstraints">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imagePublish"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/upload" />
+
+            <TextView
+                android:id="@+id/textViewPublish"
+                style="@style/textLocal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/publishBook"
+                app:layout_constraintBottom_toBottomOf="@+id/imagePublish"
+                app:layout_constraintEnd_toStartOf="@+id/imagePublish"
+                app:layout_constraintTop_toTopOf="@+id/imagePublish" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
