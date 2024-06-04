@@ -25,6 +25,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -40,6 +41,8 @@ import com.example.maktabuhalafiq.ui.Adapter.ItemProductDownloadAdapter
 import com.example.maktabuhalafiq.databinding.FragmentHomeBinding
 import com.example.maktabuhalafiq.data.models.ItemPorduct
 import com.example.maktabuhalafiq.ui.Adapter.ButtonCategoriesAdapter
+import com.example.maktabuhalafiq.ui.Adapter.MostRatedBooksAdapter
+import com.example.maktabuhalafiq.ui.Adapter.bestSellingBooksAdaptar
 import com.example.maktabuhalafiq.ui.book.BooksFragment
 import com.example.maktabuhalafiq.ui.common.views.ProgressDialog
 import com.example.maktabuhalafiq.ui.download.DownloadFragment
@@ -62,6 +65,9 @@ class HomeFragment : Fragment() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var downloadCompleteReceiver: BroadcastReceiver
     private lateinit var dataStoreManager: DataStoreManager
+    private lateinit var  bestSellingBooksAdaptar: bestSellingBooksAdaptar
+    private lateinit var  mostRatedBooksAdapter: MostRatedBooksAdapter
+
     private var download: BooksDownload? = null
     private var downloadId: Long = -1L
     private val ViewModel: HomeViewModel by viewModels()
@@ -170,24 +176,73 @@ class HomeFragment : Fragment() {
         Toast.makeText(requireContext(), "Downloading $title", Toast.LENGTH_SHORT).show()
     }
     private fun productItem() {
-        val items = listOf(
-            ItemPorduct(R.mipmap.book1, "ورق الشجره", "خلود محمود", "20جنيه"),
-            ItemPorduct(R.mipmap.book2, "عناقيد الذهب", "أحمد علي", "25جنيه"),
-            ItemPorduct(R.mipmap.book1, "ورق الشجره", "خلود محمود", "20جنيه"),
-            ItemPorduct(R.mipmap.book2, "عناقيد الذهب", "أحمد علي", "25جنيه"),
+        val adapter = bestSellingBooksAdaptar(emptyList(), onItemClick = { book ->
 
-            )
+        }, addCart = { book ->
+            addCart(book)
+        })
+        val adaptar2=MostRatedBooksAdapter(emptyList(), onItemClick = { book ->
 
+        }, addCart = { book ->
+            addCart(book)
+        })
+        binding.mostRated.adapter=adaptar2
+        binding.mostRated.addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.dimenButtonCategories))
+        )
+        binding.bestSeller.adapter = adapter
+        binding.bestSeller.addItemDecoration(
+            SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.dimenButtonCategories))
+        )
+        ViewModel.mostRatedBooks.observe(viewLifecycleOwner,Observer{
 
+                state ->
+            when (state) {
+                is UiState.Success -> {
+                    adaptar2.updateBooks(state.data)
+                }
+                is UiState.Loading -> {
+                    // إظهار مؤشر التحميل
+                }
+                is UiState.Failure -> {
+                    // إظهار رسالة الخطأ
+                }
+            }
+        })
 
-        val adapter = ItemProductAdapter(items)
-        binding.bestSeller.adapter=adapter
-        binding.mostRated.adapter=adapter
+        ViewModel.bestSellingBooks.observe(viewLifecycleOwner, Observer { state ->
+            when (state) {
+                is UiState.Success -> {
+                    adapter.updateBooks(state.data)
+                }
+                is UiState.Loading -> {
+                    // إظهار مؤشر التحميل
+                }
+                is UiState.Failure -> {
+                    // إظهار رسالة الخطأ
+                }
+            }
+        })
+
+        ViewModel.fetchBestSellingBooks()
+        ViewModel.fetchMostRatedBooks()
+
         binding.mostRated.addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.dimenButtonCategories)))
         binding.bestSeller.addItemDecoration(SpaceItemDecoration(resources.getDimensionPixelSize(R.dimen.dimenButtonCategories)))
 
     }
+    private fun addCart(book: Book) {
+        lifecycleScope.launch {
+            try {
+               ViewModel.addToCart( book, 1)
+                Toast.makeText(requireContext(), "تمت الإضافة إلى السلة", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Log.e("BooksFragment", "خطأ في إضافة إلى السلة: ${e.message}")
+                Toast.makeText(requireContext(), "فشل في الإضافة إلى السلة", Toast.LENGTH_SHORT).show()
+            }
+        }
 
+
+    }
     private fun buttonCategory() {
         buttonCategoriesAdapter = ButtonCategoriesAdapter { category ->
             try {
