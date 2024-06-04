@@ -27,5 +27,60 @@ class BooksRepositoryImpl(private val databaseReference: DatabaseReference) : Bo
             UiState.Failure(e.message ?: "Unknown error occurred")
         }
     }
-}
+
+    override suspend fun getBook(): UiState<List<Book>> {
+        return try {
+            val booksList= mutableListOf<Book>()
+            val snapshat=databaseReference.get().await()
+            for(bookSnapshot in snapshat.children){
+                val books = bookSnapshot.getValue(Book::class.java)
+               books?.let {
+                   booksList.add(it)
+                    Log.e("TAG",it.toString())
+                }
+
+            }
+            UiState.Success(booksList)
+        }catch (e:Exception){
+            Log.e("BooksError",UiState.Failure(e.message).toString())
+            UiState.Failure(e.message)
+        }
+    }
+
+    override suspend fun getBestSellingBooks(): UiState<List<Book>> {
+        return try {
+            val booksList = mutableListOf<Book>()
+            val snapshot = databaseReference.get().await()
+            for (bookSnapshot in snapshot.children) {
+                val book = bookSnapshot.getValue(Book::class.java)
+                book?.let {
+                    booksList.add(it)
+                }
+            }
+            val sortedBooks = booksList.sortedByDescending { it.sales }.take(10)
+            UiState.Success(sortedBooks)
+        } catch (e: Exception) {
+            Log.e("BooksRepository", "Failed to fetch best-selling books: ${e.message}")
+            UiState.Failure(e.message ?: "Unknown error occurred")
+        }
+    }
+    override suspend fun getMostRatedBooks(): UiState<List<Book>> {
+        return try {
+            val booksList = mutableListOf<Book>()
+            val snapshot = databaseReference.get().await()
+            for (bookSnapshot in snapshot.children) {
+                val book = bookSnapshot.getValue(Book::class.java)
+                book?.let {
+                    booksList.add(it)
+                }
+            }
+            val sortedBooks = booksList.sortedByDescending { it.rating }.take(10)
+            UiState.Success(sortedBooks)
+        } catch (e: Exception) {
+            Log.e("BooksRepository", "Failed to fetch best-selling books: ${e.message}")
+            UiState.Failure(e.message ?: "Unknown error occurred")
+        }
+    }
+    }
+
 
